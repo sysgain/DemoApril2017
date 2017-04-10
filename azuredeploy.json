@@ -2,18 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "westus",
-      "allowedValues": [
-        "westus",
-        "eastus",
-        "centralus"
-      ],
-      "metadata": {
-        "description": "Location where all the resources deploy"
-      }
-    },
     "vmAdminNameTrendDSM": {
       "type": "string",
       "defaultValue": "trend",
@@ -340,7 +328,7 @@
     }
   },
   "variables": {
-    "location": "[parameters('location')]",
+    "location": "[resourceGroup().location]",
     "vmNameTrendDSM": "trendMicroDSM",
     "vmNameChefServer": "chefServer",
     "vmNameSplunkEnterprise": "splunkEnterprise",
@@ -1232,6 +1220,22 @@
     "Splunk Server URI": {
       "type": "string",
       "value": "[reference('splunkstandalonedeployment').outputs.splunkenterpriseUri.value]"
+    },
+    "TrendDSM App Username": {
+      "type": "string",
+      "value": "[parameters('dsmAdminName')]"
+    },
+    "Splunk App Username": {
+      "type": "string",
+      "value": "admin"
+    },
+    "Chef Server Username": {
+      "type": "string",
+      "value": "[parameters('chefUserName')]"
+    },  
+    "Common Password": {
+      "type": "string",
+      "value": "[parameters('vmAdminPasswordTrendDSM')]"
     }
   }
 }
