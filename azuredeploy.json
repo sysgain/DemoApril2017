@@ -1239,7 +1239,7 @@
     },
     "CHEF VM": {
       "type": "string",
-      "value": "[variables('chefServer')]"
+      "value": "[variables('vmNameChefServer')]"
     },
     "Common Password": {
       "type": "string",
