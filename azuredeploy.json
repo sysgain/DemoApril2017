@@ -1232,7 +1232,15 @@
     "Chef Server Username": {
       "type": "string",
       "value": "[parameters('chefUserName')]"
-    },  
+    }, 
+    "Trend Password": {
+      "type": "string",
+      "value": "[parameters('dsmAdminPassword')]"
+    },
+    "CHEF VM": {
+      "type": "string",
+      "value": "[variables('vmNameChefServer')]"
+    },
     "Common Password": {
       "type": "string",
       "value": "[parameters('vmAdminPasswordTrendDSM')]"
